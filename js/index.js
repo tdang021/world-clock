@@ -1,6 +1,6 @@
-let losAngelesElement = document.querySelector("#los-angeles");
-let losAngelesDateElement = losAngelesElement.querySelector(".date");
 function losAngelesDisplayTime() {
+  let losAngelesElement = document.querySelector("#los-angeles");
+  let losAngelesDateElement = losAngelesElement.querySelector(".date");
   let losAngelesTimeElement = losAngelesElement.querySelector(".time");
   losAngelesDateElement.innerHTML = moment()
     .tz("America/Los_Angeles")
@@ -13,14 +13,13 @@ function losAngelesDisplayTime() {
 losAngelesDisplayTime();
 setInterval(losAngelesDisplayTime, 1000);
 
-let seoulElement = document.querySelector("#seoul");
-let seoulDateElement = seoulElement.querySelector(".date");
-
-seoulDateElement.innerHTML = moment()
-  .tz("Asia/Seoul")
-  .format("MMMM Do[,] YYYY");
-
 function seoulDisplayTime() {
+  let seoulElement = document.querySelector("#seoul");
+  let seoulDateElement = seoulElement.querySelector(".date");
+
+  seoulDateElement.innerHTML = moment()
+    .tz("Asia/Seoul")
+    .format("MMMM Do[,] YYYY");
   let seoulTimeElement = seoulElement.querySelector(".time");
   seoulTimeElement.innerHTML = moment()
     .tz("Asia/Seoul")
@@ -28,6 +27,20 @@ function seoulDisplayTime() {
 }
 seoulDisplayTime();
 setInterval(seoulDisplayTime, 1000);
+
+function madridDisplayTime() {
+  let madridElement = document.querySelector("#madrid");
+  let madridDateElement = madridElement.querySelector(".date");
+  madridDateElement.innerHTML = moment()
+    .tz("Europe/Madrid")
+    .format("MMMM Do[,] YYYY");
+  let madridTimeElement = madridElement.querySelector(".time");
+  madridTimeElement.innerHTML = moment()
+    .tz("Europe/Madrid")
+    .format("h[:]mm[:]ss [<small>]A[</small>]");
+}
+madridDisplayTime();
+setInterval(madridDisplayTime, 1000);
 
 function showSelectCity(event) {
   let cityTimeZone = event.target.value;
