@@ -67,3 +67,5 @@ function showSelectCity(event) {
 
 let selectCity = document.querySelector("#select-city");
 selectCity.addEventListener("change", showSelectCity);
+
+setInterval(showSelectCity, 1000);
