@@ -28,3 +28,26 @@ function seoulDisplayTime() {
 }
 seoulDisplayTime();
 setInterval(seoulDisplayTime, 1000);
+
+function showSelectCity(event) {
+  let cityTimeZone = event.target.value;
+  let cityDate = moment().tz(cityTimeZone).format("MMMM Do[,] YYYY");
+  let cityTime = moment()
+    .tz(cityTimeZone)
+    .format("h[:]mm[:]ss [<small>]A[</small>]");
+
+  let selectNewCity = document.querySelector("#cities");
+  let newCity = cityTimeZone.replace("_", " ").replace("_", " ").split("/");
+  changeCity = selectNewCity.querySelector(".city");
+  selectNewCity.innerHTML = `  
+  <div class="city">
+          <div>
+            <h2>${newCity[1]}</h2>
+            <div class="date">${cityDate}</div>
+          </div>
+          <div class="time">${cityTime}</div>
+        </div>`;
+}
+
+let selectCity = document.querySelector("#select-city");
+selectCity.addEventListener("change", showSelectCity);
